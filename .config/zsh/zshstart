@@ -1,0 +1,25 @@
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+
+zstyle :compinstall filename '/home/lachlan/.zshrc'
+
+autoload -U compinit; compinit
+zstyle ':completion:*' menu select
+
+# -----------------------------------------------------
+# Fastfetch
+# -----------------------------------------------------
+if [[ $(tty) == *"pts"* ]]; then
+    fastfetch --config examples/13
+else
+    echo
+    if [ -f /bin/qtile ]; then
+        echo "Start Qtile X11 with command Qtile"
+    fi
+    if [ -f /bin/hyprctl ]; then
+        echo "Start Hyprland with command Hyprland"
+    fi
+fi
+
