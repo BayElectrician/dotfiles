@@ -190,6 +190,7 @@
         "tooltip": true,
         "signal": 20,
     },
+
     "custom/keybindhint": {
         "format": " ",
         "rotate": 0,
