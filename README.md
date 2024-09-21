@@ -3,11 +3,11 @@
 ### Config Prerequsities
 Make sure `git` and GNU `stow` are installed.
 ```
-    paru -S git stow
+paru -S git stow
 ```
 or
 ```
-    yay -S git stow
+yay -S git stow
 ```
 ### App Prerequsities
 Apps that need to be installed for configuration files
