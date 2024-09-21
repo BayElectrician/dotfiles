@@ -3,19 +3,16 @@
 ### Config Prerequsities
 Make sure `git` and GNU `stow` are installed.
 ```
-    pacman -S git stow
-```
-or
-```
     paru -S git stow
 ```
+or
 ```
     yay -S git stow
 ```
 ### App Prerequsities
 Apps that need to be installed for configuration files
 Alphabet = ABCDEFGHIJKLMNOPQRSTUVWXYZ
-- Hyprland
+- Hyprland (& Hypr ecosystem)
 - Kitty
 - Neovim
 - Waybar
@@ -23,9 +20,16 @@ Alphabet = ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 Copy the below command
 ```
+    paru -S hyprland hypridle hyprlock hyprpaper hyprpicker xdg-desktop-portal-hyprland kitty neovim waybar zsh
+```
+or 
+```
+    paru -S hyprland hypridle hyprlock hyprpaper hyprpicker xdg-desktop-portal-hyprland kitty neovim waybar zsh
 ```
 ## Getting Configuration Files
-Place this dotfiles directory into \home
+Place this dotfiles directory into /home
 ```
     git clone https://github.com/BayElectrician/dotfiles
+    cd dotfiles
+    stow .
 ```
