@@ -8,10 +8,10 @@
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Edit this .bashrc file
+# Edit this .zshrc file
 alias ezrc='nvim ~/.zshrc'
 
-# Show help for this .bashrc file
+# Show help for this .zshrc file
 alias hlp='less ~/.zshrc_help'
 
 # alias to show the date
@@ -29,6 +29,7 @@ alias cls='clear'
 alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
 alias vim='nvim'
+alias nv='nvim'
 alias svim='sudo nvim'
 alias vis='nvim "+set si"'
 
@@ -131,5 +132,3 @@ alias lazg() {
 	git commit -m "$1"
 	git push
 }
-
-
