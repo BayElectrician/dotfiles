@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
 
@@ -48,16 +48,45 @@ echo "
 checkAURHelper
 
 echo "Do you want to update the system? (Y/y) or (N,n)"
-echo "Entered: " && read confirmation && echo -e " \n "
+echo "Entered: " && read updateConfirmation && echo -e " \n "
 function systemUpdate(){
-	case $confirmation in 
-		Y | y) echo "Updating System"
-		       echo "sudo $AURHelper -Syu"
-		       $AURHelper -Syu;;
-		N | n) echo "System Update Skipped";;
-		*) echo "Enter a valid answer";;
+	case $updateConfirmation in 
+		Y | y)  echo "Updating System"
+			echo "$AURHelper -Syu"
+			$AURHelper -Syu;;
+		N | n)  echo "System Update Skipped";;
+		*)	echo "Enter a valid answer";;
 	esac
 }
 
 systemUpdate
 
+echo "
+--------------------------------------------------------------------------
+   ██╗  ██╗██╗   ██╗██████╗ ██████╗ ██╗      █████╗ ███╗   ██╗██████╗ 
+   ██║  ██║╚██╗ ██╔╝██╔══██╗██╔══██╗██║     ██╔══██╗████╗  ██║██╔══██╗
+   ███████║ ╚████╔╝ ██████╔╝██████╔╝██║     ███████║██╔██╗ ██║██║  ██║
+   ██╔══██║  ╚██╔╝  ██╔═══╝ ██╔══██╗██║     ██╔══██║██║╚██╗██║██║  ██║
+   ██║  ██║   ██║   ██║     ██║  ██║███████╗██║  ██║██║ ╚████║██████╔╝
+   ╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ 
+                                                                      
+   ███████╗███████╗████████╗██╗   ██╗██████╗                          
+   ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗                         
+   ███████╗█████╗     ██║   ██║   ██║██████╔╝                         
+   ╚════██║██╔══╝     ██║   ██║   ██║██╔═══╝                          
+   ███████║███████╗   ██║   ╚██████╔╝██║                              
+   ╚══════╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝                              
+--------------------------------------------------------------------------
+"
+
+echo "Do want to install Hyprland? (Y/y) or (N/n)"
+echo "Entered: " && read hyprlandConfirmation && echo -e " \n "
+function installHyprland(){
+	case $hyprlandConfirmation in
+		Y | y)  echo "Installing Hyprland & Hyprland Ecosystem"
+			echo "$AURHelper -S hyprland hypridle hyprlock hyprpaper hyprpicker xdg-desktop-portal-hyprland" 
+			$AURHelper -S hyprland hypridle hyprlock hyprpaper hyprpicker xdg-desktop-portal-hyprland;;
+		N | n)  echo "Cancelling Hyprland Installation"
+	esac
+}
+installHyprland
