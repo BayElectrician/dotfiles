@@ -1,0 +1,207 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+    modi                :   "drun,filebrowser,window";
+    show-icons          :                             true;
+    /*kb-mode-next        :            "Super+Control+space";*/
+    display-drun        :                           "Apps";
+    display-filebrowser :                          "Files";
+    display-window      :                         "Window";
+	drun-display-format :                         "{name}";
+	window-format       :                   " {w}   {c}";
+    filebrowser {
+
+      /* 
+      ##############################################################
+      ###           Directory the file browser starts in.        ###
+      ##############################################################
+      */
+      directory        : "/home/$USER";
+      
+      
+        /*#################### SORTING METHOD ######################
+        ### Sorting method used here is based on name. Other po- ###
+        ### ible values are:                                     ###
+        ###   - "name"                                           ### 
+        ###   - "mtime" - Based on modification time.            ###
+        ###   - "atime" - Based on access time.                  ###
+        ###   - "ctime" - Based on change time.                  ###
+        ##########################################################*/
+     
+      sorting-method    :     "name";
+
+       /*#################### ITEM GROUPING ########################
+       ###              Group directories before files           ###
+       ###########################################################*/
+      
+      directories-first :       true;
+      
+      show-hidden       :       true;
+         
+    /** return 1 on cancel. */
+      cancel-returns-1  :       true;
+      }
+  
+}
+
+
+/*####################### DEFINING COLORS ###########################
+###################################################################*/
+
+
+/* Imported from pywal */
+
+/*######################### MAIN ROFI WINDOW ##########################
+#####################################################################*/
+
+
+window {
+    border-radius       :                       15;
+    width               :                      25%;
+    height              :                      60%;
+    transparency        :                   "real";
+    y-offset            :                       10;
+}
+
+/*######################### ITEMS IN ROFI #############################
+### A vertical bar with an input bar at the top and listiview below ###
+### below the input bar. The bottom item is a mode-switcher, that   ###
+### allow you to switch between the various combi modes defined in  ###
+### the configuration section.                                      ###
+#####################################################################*/
+
+
+mainbox {
+    children            :      ["inputbar", "message", "listview", "mode-switcher"];
+    orientation         :                                                  vertical;
+    spacing             :                                                         10;
+}
+
+message {
+}
+
+textbox {
+}
+
+
+/*###################### DEFINING LISTVIEW ###########################
+### The place where the app names are listed. The view is a one    ###
+###                     column view.                               ###
+####################################################################*/
+
+
+listview {
+    border-radius       :               10px;
+    columns             :                  1;
+    scrollbar		:		false;
+}
+
+
+/*######################### APP APPEARANCE ############################
+### In the list view, the applications appearance will be the app   ###
+### icon followed by the app name This is controlled in the         ###
+### "children" key. Rearrange/remove this for modifications         ###
+#####################################################################*/
+
+
+element {
+    border-radius       :                                  5px;
+    padding-left        :                                 10px;
+    orientation         :                           horizontal;
+    margin-left         :                                 15px;
+    children            :       [ element-icon, element-text ];
+    spacing             :                                  5px;
+    background-color    :                          transparent;
+}
+
+element-text {
+    background-color    :         transparent;
+    text-color          :             inherit;
+    padding             :                 5px;
+}
+
+element.normal.normal {
+}
+
+element.normal.urgent {
+}
+
+element.normal.active {
+}
+
+element.selected.normal {
+    border-radius       :                12px;
+}
+
+element.selected.urgent {
+    border              :                   1;
+    border-radius       :                20px;
+}
+
+element.selected.active {
+    border              :                   1;
+    border-radius       :                20px;
+}
+
+element.alternate.normal {
+}
+
+element.alternate.urgent {
+}
+
+element.alternate.active {
+}
+
+scrollbar {
+
+}
+
+mode-switcher {
+    enabled             :                true;
+    border              :                 0px;
+    border-radius       :                10px;
+    spacing             :                 5px;
+    width               :               200px;
+}
+
+button {
+    padding             :                 5px;
+    border-radius       :                10px;
+    background-color    :   	      #23273A;
+}
+
+button.selected {
+}
+
+
+/*############################### INPUT BAR ###################################
+###     This is the input bar group. We define what to appear in the        ###
+###     input bar area. This is defined in the "children" key. The text     ###
+###     prompt in the input bar is configured using the "entry" item.       ###
+#############################################################################*/
+
+
+inputbar {
+    background-color    :                                          transparent;
+    border-radius       :                                                  5px;
+    margin              :                                      5px 5px 5px 5px;
+    children            :   [prompt,textbox-prompt-colon,entry,case-indicator];
+}
+
+case-indicator {
+}
+
+entry {
+    background-color    :   	      #23273A;
+    border-radius       :                 5px;
+    padding             :                10px;
+    placeholder         :       "Search Apps";
+}
+
+prompt {
+    padding             :                 5px;
+}
+
+textbox-prompt-colon {
+    padding             :                 5px;
+}

@@ -14,13 +14,17 @@ alias ezrc='nvim ~/.zshrc'
 # Show help for this .zshrc file
 alias hlp='less ~/.zshrc_help'
 
+# Edit the nix configuration
+alias enix='sudo nvim /etc/nixos/configuration.nix'
+alias rebuild='sudo nixos-rebuild switch'
+
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
 
 # Alias's to modified commands
 alias cp='cp -i'
 alias mv='mv -i'
-alias rm='trash -v'
+#alias rm='trash -v'
 alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias ping='ping -c 10'

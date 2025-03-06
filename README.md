@@ -33,3 +33,10 @@ git clone https://github.com/BayElectrician/dotfiles
 cd dotfiles
 stow .
 ```
+
+## Need to install via flatpak
+- Flatseal
+- Zen Browser
+- OBS
+- OnlyOffice
+- Zoom
